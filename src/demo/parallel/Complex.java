@@ -83,7 +83,15 @@ public class Complex {
         return this;
     }
 
-    //public Complex equals(){}
+    @Override
+    public boolean equals(Object object){
+        if (this == object)
+            return true;
+        if (!(object instanceof Complex complex))
+            return false;
+        var d = 0.00001;
+        return Math.abs(re - complex.re) < d && Math.abs(im - complex.im) < d;
+    }
 
     /**
      * Multiply operation.
